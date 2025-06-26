@@ -249,36 +249,45 @@ if (in_array('filipok.koriphey.ru', $config->httpHosts)) {
 
 ### Рекомендуемый подход
 
-Для проект-специфичных настроек рекомендуется:
+Добавляйте проект-специфичную логику непосредственно в файл с помощью проверки домена:
 
-1. **Создать файл конфигурации** (`includes/project-config.php`):
 ```php
-$projectConfig = [
-    'home' => [
-        'default_class' => 'py-5 mb-5 mb-xl-6 min-vh-25',
-        'custom_hosts' => [
-            'filipok.koriphey.ru' => 'py-5 min-vh-20',
-            'another-domain.com' => 'custom-class-here',
-        ]
-    ]
+// В файле home.php или другом шаблоне
+if (in_array('filipok.koriphey.ru', $config->httpHosts)) {
+  $homeClass = "py-5 min-vh-20";
+} elseif (in_array('another-domain.com', $config->httpHosts)) {
+  $homeClass = "py-4 min-vh-30";
+} else {
+  $homeClass = "py-5 mb-5 mb-xl-6 min-vh-25"; // По умолчанию
+}
+```
+
+Или для более сложной логики:
+
+```php
+// Определение настроек на основе домена
+$domainSettings = [
+  'filipok.koriphey.ru' => [
+    'homeClass' => 'py-5 min-vh-20',
+    'showSpecialHeader' => true
+  ],
+  'another-domain.com' => [
+    'homeClass' => 'py-4 min-vh-30',
+    'showSpecialHeader' => false
+  ]
 ];
-```
 
-2. **Использовать в шаблонах**:
-```php
-$homeClass = getHomeClass(); // Функция из project-config.php
-```
+$currentHost = $config->httpHost;
+$settings = $domainSettings[$currentHost] ?? [
+  'homeClass' => 'py-5 mb-5 mb-xl-6 min-vh-25',
+  'showSpecialHeader' => false
+];
 
-3. **Исключить из синхронизации** - добавить в `.gitignore`:
-```
-# Project-specific configuration
-includes/project-config.php
+$homeClass = $settings['homeClass'];
 ```
 
 ### Файлы, исключаемые из синхронизации
-
 - `src/css/theme-colors-branch.scss` - цвета темы проекта
-- `includes/project-config.php` - конфигурация проекта
 - Любые файлы с проект-специфичной логикой
 
 ## ⚠️ Важные примечания
