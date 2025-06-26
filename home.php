@@ -4,9 +4,8 @@ namespace ProcessWire;
 
 if (in_array('filipok.koriphey.ru', $config->httpHosts)) {
   $homeClass = "py-5 min-vh-20";
-} else {
-  $homeClass = "py-5 mb-5 mb-xl-6 min-vh-25";
 }
+
 ?>
 
 <region pw-before="navbar">

@@ -262,30 +262,6 @@ if (in_array('filipok.koriphey.ru', $config->httpHosts)) {
 }
 ```
 
-Или для более сложной логики:
-
-```php
-// Определение настроек на основе домена
-$domainSettings = [
-  'filipok.koriphey.ru' => [
-    'homeClass' => 'py-5 min-vh-20',
-    'showSpecialHeader' => true
-  ],
-  'another-domain.com' => [
-    'homeClass' => 'py-4 min-vh-30',
-    'showSpecialHeader' => false
-  ]
-];
-
-$currentHost = $config->httpHost;
-$settings = $domainSettings[$currentHost] ?? [
-  'homeClass' => 'py-5 mb-5 mb-xl-6 min-vh-25',
-  'showSpecialHeader' => false
-];
-
-$homeClass = $settings['homeClass'];
-```
-
 ### Файлы, исключаемые из синхронизации
 - `src/css/theme-colors-branch.scss` - цвета темы проекта
 - Любые файлы с проект-специфичной логикой
