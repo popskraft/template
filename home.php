@@ -2,10 +2,11 @@
 
 namespace ProcessWire;
 
+// Add a class to the home page if the site is on the main domain
+$homeClass = "py-5 mb-5 mb-xl-6 min-vh-20";
 if (in_array('filipok.koriphey.ru', $config->httpHosts)) {
   $homeClass = "py-5 min-vh-20";
 }
-
 ?>
 
 <region pw-before="navbar">
