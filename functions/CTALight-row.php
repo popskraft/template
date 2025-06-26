@@ -14,12 +14,12 @@ function rowCTALight() {
 
     $edit = page()->fieldset_cta;
 
-  $out = "<div class='container-xxl mb-5 mb-lg-7'>";
+  $out = "<div class='CTAlight-row container-xxl mb-5 mb-lg-7'>";
     $out .= "<div class='sectionContent mx-auto max-w-lg-80 max-w-xxl-60 shadow bg-white border rounded' data-aos='zoom-in' edit='$edit.images_main,text_1,text_summary,link,text_2,check_off'>";
       $out .= "<div class='row align-items-center'>";
       
-        $out .= "<div class='col-lg d-flex align-items-center' data-aos='zoom-in' data-aos-delay='400'>";
-          $out .= image($images->first, null, 250, 1);
+        $out .= "<div class='col-lg d-flex align-items-end' data-aos='zoom-in' data-aos-delay='400'>";
+          $out .= image($images->first, null, 500,);
         $out .= "</div>";
         
         $out .= "<div class='col-12 col-lg-8 text-center text-lg-start'>";

@@ -14,7 +14,7 @@ function rowCTA() {
 
     $edit = page()->fieldset_cta;
 
-    $out = "<div class='sectionContent shadow bg-white border rounded mt-7' data-aos='zoom-in' edit='$edit.images_main,text_1,text_summary,link,text_2,check_off'>";
+    $out = "<div class='CTA-row sectionContent shadow bg-white border rounded mt-7' data-aos='zoom-in' edit='$edit.images_main,text_1,text_summary,link,text_2,check_off'>";
       $out .= "<div class='row align-items-center'>";
         $out .= "<div class='col-lg d-flex align-items-center' data-aos='zoom-in' data-aos-delay='400'>";
           $out .= image($images->first, null, 500);
