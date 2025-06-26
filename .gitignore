@@ -6,6 +6,9 @@ config.codekit3
 .env
 .env.local
 
+# Exclude project-specific theme files
+src/css/theme-colors-branch.scss
+
 # Exclude compiled/generated files
 dist/
 build/

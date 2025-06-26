@@ -24,7 +24,7 @@ git subtree add --prefix=site/templates https://github.com/popskraft/koriphey-pw
 
 ### Синхронизация изменений:
 
-#### Получить обновления: кто был вообще что мы могли просто
+#### Получить обновления:
 ```bash
 git subtree pull --prefix=site/templates https://github.com/popskraft/koriphey-pw-template.git main --squash
 ```
@@ -59,6 +59,7 @@ chmod +x setup-new-project.sh
 
 Файл `.gitignore` автоматически исключает:
 - Конфигурационные файлы (`config.codekit3`, `.env`)
+- Проект-специфичные темы (`theme-colors-branch.scss`)
 - Скомпилированные файлы (`dist/`, `*.min.*`)
 - Кэш и временные файлы
 - IDE и системные файлы
