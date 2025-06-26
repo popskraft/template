@@ -1,0 +1,96 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+// Test comment for watch:both
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+@import "theme-variables"; // Must be before BS variables
+@import "rfs";
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../bootstrap/scss/variables";
+// @import "../bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../bootstrap/scss/maps";
+@import "../bootstrap/scss/mixins";
+@import "theme-mixins"; // Must be after BS mixins
+@import "../bootstrap/scss/root";
+
+@import "../bootstrap/scss/mixins/banner";
+// @include bsBanner("");
+
+@import "../bootstrap/scss/utilities";
+@import "theme-utilities"; // Must be aftter BS utiltities and before Styles
+
+// Layout & components
+@import "../bootstrap/scss/reboot";
+@import "../bootstrap/scss/type";
+@import "../bootstrap/scss/images";
+@import "../bootstrap/scss/containers";
+@import "../bootstrap/scss/grid";
+@import "../bootstrap/scss/tables";
+@import "../bootstrap/scss/forms";
+@import "../bootstrap/scss/buttons";
+@import "../bootstrap/scss/transitions";
+@import "../bootstrap/scss/dropdown";
+@import "../bootstrap/scss/button-group";
+@import "../bootstrap/scss/nav";
+@import "../bootstrap/scss/navbar";
+// @import "../bootstrap/scss/card";
+@import "../bootstrap/scss/accordion";
+// @import "../bootstrap/scss/breadcrumb";
+// @import "../bootstrap/scss/pagination";
+// @import "../bootstrap/scss/badge";
+// @import "../bootstrap/scss/alert";
+// @import "../bootstrap/scss/progress";
+// @import "../bootstrap/scss/list-group";
+@import "../bootstrap/scss/close";
+// @import "../bootstrap/scss/toasts";
+// @import "../bootstrap/scss/modal";
+@import "../bootstrap/scss/tooltip";
+@import "../bootstrap/scss/popover";
+// @import "../bootstrap/scss/carousel";
+@import "../bootstrap/scss/spinners";
+@import "../bootstrap/scss/offcanvas";
+// @import "../bootstrap/scss/placeholders";
+
+// // Helpers
+@import "../bootstrap/scss/helpers";
+
+// // Utilities
+@import "../bootstrap/scss/utilities/api";
+// // scss-docs-end import-stack
+
+
+/**
+ *  THEME STYLES
+ *  ========================================
+*/
+// Theme AOS
+// @import "../../plugins/aos/src/sass/aos"; // Animation On Scroll
+
+// Flickity
+// @import "../../plugins/flickity/flickity";
+// @import "../../plugins/slider/slider";
+
+// @import "animation";
+// @import "buttons";
+// @import "images";
+// @import "links";
+// @import "nav_dropdown";
+// @import "nav_hamburger";
+// @import "pagination";
+// @import "type";
+// @import "colors";
+// @import "pw";
+// @import "theme";
+
+// Layouts
+// @import "teaser";
+// @import "scrollbtn";
+// @import "video";

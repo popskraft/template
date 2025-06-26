@@ -1,0 +1,417 @@
+// ========================================
+//  Font Families
+//  Utility classes for applying font families
+// ========================================
+.font-serif {
+  font-family: $font-family-serif;
+}
+
+.font-headings {
+  font-family: $font-family-headings;
+}
+
+.font-sans-serif {
+  font-family: $font-family-sans-serif;
+}
+
+// ========================================
+//  Font Styles
+//  Utility classes for font styling
+// ========================================
+.font-italic {
+  font-style: italic;
+}
+
+// ========================================
+//  Display Typography
+//  Large heading styles for prominent display text
+// ========================================
+
+// Display 0 (commented out as it's not in use)
+// .display-0 {
+//   line-height: $display-line-height-sm;
+//   letter-spacing: $bigheadings-letterspacing;
+//   font-style: $display-style;
+//   text-transform: $display0-transform;
+//   font-weight: $display0-weight;
+// }
+
+// ========================================
+//  Display Headings
+//  Large, attention-grabbing headings
+// ========================================
+
+// Display 1 - Largest display heading
+.display-1 {
+  line-height: $line-height-xsm;
+  letter-spacing: $bigheadings-letterspacing;
+  font-style: $display-style;
+  text-transform: $display1-transform;
+  font-weight: $display1-weight;
+}
+
+// Display 2 - Second largest display heading
+.display-2 {
+  line-height: $line-height-xsm;
+  letter-spacing: $bigheadings-letterspacing;
+  font-style: $display-style;
+  text-transform: $display2-transform;
+  font-weight: $display2-weight;
+}
+
+// Display 3 - Medium display heading
+.display-3 {
+  // line-height: $display-line-height; // Commented out as it might not be needed
+  letter-spacing: $headings-letterspacing;
+  font-style: $display-style;
+  text-transform: $display3-transform;
+  font-weight: $display3-weight;
+}
+
+// Display 4 - Smaller display heading
+.display-4 {
+  letter-spacing: $headings-letterspacing;
+  font-style: $display-style;
+  text-transform: $display4-transform;
+  font-weight: $display4-weight;
+}
+
+// Display 5 - Second smallest display heading
+.display-5 {
+  letter-spacing: $headings-letterspacing;
+  font-style: $display-style;
+  text-transform: $display5-transform;
+  font-weight: $display5-weight;
+}
+
+// Display 6 - Smallest display heading
+.display-6 {
+  font-style: $display-style;
+  text-transform: $display6-transform;
+  font-weight: $display6-weight;
+}
+
+// ========================================
+//  Blockquotes
+//  Styling for quoted content
+// ========================================
+blockquote {
+  // Layout & Spacing
+  overflow: hidden;
+  margin: $spacer 0 ($spacer * 2);
+  padding: $spacer;
+  
+  // Typography
+  font-family: $blockquote-font-family;
+  font-style: $blockquote-font-style;
+  font-weight: $blockquote-font-weight;
+  line-height: $blockquote-line-height;
+  color: $blockquote-color;
+  
+  // Visual Style
+  border: $blockquote-border;
+  border-radius: $border-radius;
+  background: $blockquote-bg-color;
+  
+  // Responsive adjustments
+  @include media-breakpoint-up(md) {
+    margin: ($spacer * 2.5) 0;
+    padding: $spacer ($spacer * 2);
+  }
+  
+  // Paragraphs within blockquotes
+  p {
+    margin: 0.85em 0;
+  }
+  
+  // Remove top margin when first child
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// ========================================
+//  Text Utilities
+//  Helper classes for text manipulation
+// ========================================
+.text-truncate-xs {
+  @include media-breakpoint-down(sm) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+// ========================================
+//  Lead Paragraph
+//  Standout introductory text with special styling
+// ========================================
+.lead {
+  // Typography
+  font-family: $lead-font-family;
+  font-style: $lead-font-style;
+  line-height: $lead-line-height;
+  text-transform: $lead-text-transform;
+  color: $lead-color;
+  
+  // Links within lead text
+  a {
+    @extend .underline;
+  }
+  
+  // Responsive adjustments (commented out as not in use)
+  // @include media-breakpoint-up(sm) {
+  //   line-height: $lead-line-height;
+  // }
+}
+
+// ========================================
+//  Text Content Container
+//  Styling for rich text content areas
+// ========================================
+.txt {
+  // Links within text content
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // ========================================
+  //  Headings within text content
+  // ========================================
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: $headings-letterspacing;
+    
+    // Add top margin to headings that follow other elements
+    &:not(:first-child) {
+      margin-top: $headings-margin-top;
+    }
+  }
+  
+  // Style for h1 and h2 headings
+  h1, h2 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $gray-200;
+  }
+
+  // ========================================
+  //  Inline Text Elements
+  // ========================================
+  strong {
+    font-weight: $font-weight-bold;
+    color: var(--bs-primary-dark);
+  }
+
+  
+  // ========================================
+  //  Horizontal Rule
+  // ========================================
+  hr {
+    margin: 3rem 0;
+  }
+
+  
+  // ========================================
+  //  Media Elements
+  // ========================================
+  figure,
+  img {
+    margin: 1rem 0;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  // Figure with caption
+  figure {
+    margin-bottom: 1rem;
+    
+    // Figure caption styling
+    figcaption {
+      padding: 0 0 0.5rem;
+      font-size: 0.875rem;
+      font-weight: $font-weight-bold;
+      color: var(--bs-primary);
+    }
+  }
+} // End of .txt block
+
+// Marker list base styles
+$marker-h: 8px;
+
+// Marker list styles
+// .txt > ul,
+.markerlist ul,
+ul.markerlist {
+  padding: 0 0 0 3rem;
+  // @include media-breakpoint-up(lg) {
+  //   padding-left: 2.5rem;
+  // }//END @media
+
+  & li {
+    position: relative;
+    list-style: none;
+    padding-top: .375em;
+    
+    &:before {
+      position: absolute;
+      content: "";
+      // border: 2px solid $primary;
+      display: inline-block;
+      height: $marker-h;
+      width: $marker-h;
+      border-radius: 50%;
+      margin: 0.45em 1rem 0 -1.75rem;
+      line-height: $marker-h;
+      font-family: 'themeicon';
+      text-align: center;
+      background-color: $primary;
+      color: $primary;
+    }
+  }
+}
+
+.markerlist.markerlist-secondary > ul li:before {
+  border-color: $secondary;
+  background-color: $secondary;
+  color: $secondary;
+}
+
+.markerlist-icon > ul,
+ul.markerlist-icon {
+  padding: 0 0 0 50px;
+  @include media-breakpoint-down(xxl) {
+    padding-left: 32px;
+  }
+  & li {
+    line-height: $line-height-sm;
+    list-style: none;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    &:before {
+      @include media-breakpoint-down(xxl) {
+        transform: scale(.75) translate(0, -4px);
+        margin-left: -38px;
+      }
+      content: "";
+      position: absolute;
+      border: none;
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      margin: 0 1rem 0 -50px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 2rem;
+      }
+    }
+  }
+  
+  .markerlist-icon.bg-chevron > ul li:before {
+    background-color: $secondary;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M10.5,7.6L7.2,4.3C7,4.1,6.6,4.1,6.4,4.3L5.9,4.8C5.7,5,5.7,5.4,5.9,5.6L8.3,8l-2.4,2.4c-0.2,0.2-0.2,0.6,0,0.8l0.5,0.5c0.2,0.2,0.6,0.2,0.8,0l3.2-3.2c0.1-0.1,0.2-0.3,0.2-0.4C10.6,7.8,10.6,7.7,10.5,7.6z'/%3E%3C/svg%3E");
+  }
+  .markerlist-icon.bg-arrow > ul li:before {
+    background-color: $secondary;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.5,11.8c-0.2,0-0.4-0.1-0.6-0.2c-0.3-0.3-0.3-0.8,0-1.1l1.6-1.6H4.5C4.1,8.8,3.7,8.4,3.7,8s0.4-0.8,0.8-0.8h5.1L7.9,5.6c-0.3-0.3-0.3-0.8,0-1.1c0.2-0.2,0.4-0.2,0.6-0.2s0.4,0.1,0.6,0.2l3,3c0.2,0.1,0.2,0.4,0.2,0.6c0,0.2-0.1,0.4-0.2,0.6l-3,3C8.9,11.7,8.7,11.8,8.5,11.8z'/%3E%3C/svg%3E");
+  }
+  .markerlist-icon.bg-check > ul li:before {
+    background-color: $secondary;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M7.9,11.2l4.4-4.8c0.2-0.2,0.2-0.6,0-0.8l-0.5-0.5c-0.2-0.2-0.6-0.2-0.8,0l-3.6,4L5.2,6.9C5,6.6,4.6,6.6,4.4,6.9L4,7.3C3.7,7.5,3.7,7.9,4,8.1l3.1,3.1c0.1,0.1,0.3,0.2,0.4,0.2C7.6,11.4,7.8,11.3,7.9,11.2z'/%3E%3C/svg%3E");
+  }
+  
+  .markerlist-icon.chevron > ul li:before {
+    // background-color: $white;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='YellowGreen' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M10.5,7.6L7.2,4.3C7,4.1,6.6,4.1,6.4,4.3L5.9,4.8C5.7,5,5.7,5.4,5.9,5.6L8.3,8l-2.4,2.4c-0.2,0.2-0.2,0.6,0,0.8l0.5,0.5c0.2,0.2,0.6,0.2,0.8,0l3.2-3.2c0.1-0.1,0.2-0.3,0.2-0.4C10.6,7.8,10.6,7.7,10.5,7.6z'/%3E%3C/svg%3E");
+  }
+  .markerlist-icon.arrow > ul li:before {
+    // background-color: $white;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='YellowGreen' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.5,11.8c-0.2,0-0.4-0.1-0.6-0.2c-0.3-0.3-0.3-0.8,0-1.1l1.6-1.6H4.5C4.1,8.8,3.7,8.4,3.7,8s0.4-0.8,0.8-0.8h5.1L7.9,5.6c-0.3-0.3-0.3-0.8,0-1.1c0.2-0.2,0.4-0.2,0.6-0.2s0.4,0.1,0.6,0.2l3,3c0.2,0.1,0.2,0.4,0.2,0.6c0,0.2-0.1,0.4-0.2,0.6l-3,3C8.9,11.7,8.7,11.8,8.5,11.8z'/%3E%3C/svg%3E");
+  }
+  .markerlist-icon.check > ul li:before {
+    // background-color: $white;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='YellowGreen' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M7.9,11.2l4.4-4.8c0.2-0.2,0.2-0.6,0-0.8l-0.5-0.5c-0.2-0.2-0.6-0.2-0.8,0l-3.6,4L5.2,6.9C5,6.6,4.6,6.6,4.4,6.9L4,7.3C3.7,7.5,3.7,7.9,4,8.1l3.1,3.1c0.1,0.1,0.3,0.2,0.4,0.2C7.6,11.4,7.8,11.3,7.9,11.2z'/%3E%3C/svg%3E");
+  }
+  .markerlist-icon.checkbox > ul li:before {
+    // background-color: $white;
+    border-radius: 0%;
+    transform: scale(.8);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='YellowGreen' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.9 11.2L12.3 6.4C12.5 6.2 12.5 5.8 12.3 5.6L11.8 5.1C11.6 4.9 11.2 4.9 11 5.1L7.4 9.1L5.2 6.9C5 6.6 4.6 6.6 4.4 6.9L4 7.3C3.7 7.5 3.7 7.9 4 8.1L7.1 11.2C7.2 11.3 7.4 11.4 7.5 11.4C7.6 11.4 7.8 11.3 7.9 11.2ZM13.4 1.8C13.8 1.8 14.2 2.2 14.2 2.6V13.5C14.2 13.9 13.8 14.3 13.4 14.3H2.6C2.2 14.3 1.8 13.9 1.8 13.5V2.6C1.8 2.2 2.2 1.8 2.6 1.8H13.4ZM13.2 0H2.8C1.2 0 0 1.2 0 2.8V13.3C0 14.8 1.2 16 2.8 16H13.3C14.8 16 16.1 14.8 16.1 13.2V2.8C16 1.2 14.8 0 13.2 0Z'/%3E%3C/svg%3E");
+  }
+
+// Numered lists
+.txt > ol,
+.numlist {
+  counter-reset: li;
+  padding: 0 0 0 50px;
+  @include media-breakpoint-down(lg) {
+    padding-left: 32px;
+  }
+  & > li {
+    list-style: none;
+    padding-top: 1rem;
+    &:before {
+      @include media-breakpoint-down(lg) {
+        transform: scale(.75) translate(0, 0);
+        margin-left: -38px;
+      }
+      position: absolute;
+      content: counter(li);
+      counter-increment: li;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 1rem -5px -50px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid $gray-300;
+      font-size: 1rem;
+      font-family: 'Open Sans', Tahoma, Arial, sans-serif;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 50%;
+      color: $primary-dark;
+      background-color: $light;
+    }
+  }
+}
+
+.txt table {
+  // --#{$prefix}table-color: #{$table-color};
+  // --#{$prefix}table-bg: #{$table-bg};
+  // --#{$prefix}table-border-color: #{$table-border-color};
+  // --#{$prefix}table-accent-bg: #{$table-accent-bg};
+  // --#{$prefix}table-striped-color: #{$table-striped-color};
+  // --#{$prefix}table-striped-bg: #{$table-striped-bg};
+  // --#{$prefix}table-active-color: #{$table-active-color};
+  // --#{$prefix}table-active-bg: #{$table-active-bg};
+  // --#{$prefix}table-hover-color: #{$table-hover-color};
+  // --#{$prefix}table-hover-bg: #{$table-hover-bg};
+
+  width: 100%;
+  margin-bottom: $spacer;
+  color: var(--#{$prefix}table-color);
+  vertical-align: $table-cell-vertical-align;
+  border-color: var(--#{$prefix}table-border-color) !important;
+
+  // Target th & td
+  // We need the child combinator to prevent styles leaking to nested tables which doesn't have a `.table` class.
+  // We use the universal selectors here to simplify the selector (else we would need 6 different selectors).
+  // Another advantage is that this generates less code and makes the selector less specific making it easier to override.
+  // stylelint-disable-next-line selector-max-universal
+  :not(caption)>*>* {
+    padding: $table-cell-padding-y $table-cell-padding-x;
+    background-color: var(--#{$prefix}table-bg);
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 0 9999px var(--#{$prefix}table-accent-bg);
+  }
+
+  tbody {
+    vertical-align: inherit;
+  }
+
+  thead {
+    vertical-align: bottom;
+  }
+}

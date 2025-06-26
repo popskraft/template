@@ -1,0 +1,88 @@
+// Teasers
+$teaser-w: 300px;
+$teaser-w-md: 120px;
+$teaser-w-sm: 80px;
+
+.teaser-wrapper {
+	position: relative;
+	height: 0;
+	z-index: $zindex-min;
+}
+
+// teaser_flag
+.teaser {
+	display: inline-flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	z-index: auto;
+	max-width: $teaser-w;
+	transform-origin: top left;
+	border-radius: .375rem;
+
+	// &:after,
+	&:before {
+		content:"";
+		z-index: auto;
+		position:absolute;
+		left: 0px;
+		bottom: 0px;
+		width: 100%;
+		height: 100%;
+
+		background-color: rgba($gray-600, .15);
+		transform: scale(1.03, 1) skew(-9deg, 9deg);
+		transform-origin: bottom left;
+		border-radius: .375rem;
+	}
+
+	&.rotate {
+		transform: rotate(-6deg);
+	}
+
+	@each $color, $value in $theme-transparent-bg {
+	  &.fade-bg-#{$color},
+	  &.bg-#{$color} {
+	  	background-color: #{$value};
+	  	&:before {
+		    background-color: #{$value};
+		    opacity: .4;
+			}
+	  }
+	}
+}
+
+
+.teaser-content {
+	position: relative;
+	z-index: $zindex-min;
+}
+
+// Teaser-round
+.teaser-round {
+	@extend .teaser;
+
+	border-radius: 50%;
+	height: $teaser-w * .65;
+	width: $teaser-w * .65;
+
+	@include media-breakpoint-up(sm) {
+		height: $teaser-w;
+		width: $teaser-w;
+	}//END @media
+
+	&:before {
+		border-radius: 50%;
+	}
+
+	&.teaser-md {
+		height: $teaser-w-md;
+		width: $teaser-w-md;
+	}
+
+	&.teaser-sm {
+		height: $teaser-w-sm;
+		width: $teaser-w-sm;
+	}
+
+}

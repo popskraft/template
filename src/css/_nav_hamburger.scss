@@ -1,0 +1,48 @@
+$hamburger-w: 24px;
+.hamburger {
+  position: relative;
+  z-index: $zindex-min;
+  display: inline-block;
+  width: $hamburger-w;
+  height: $hamburger-w;
+  
+  > i {
+    display: block;
+    width: $hamburger-w;
+    height: 2px;
+    margin: 6px 0;
+    transition: .25s ease-in;
+
+    &:nth-child(1) {
+      transform: translate3d(0, 8px,0) rotate(45deg);
+    }
+    &:nth-child(2) {
+      display: none;
+    }
+    &:nth-child(3) {
+      transform: translate3d(0, 0px,0) rotate(-45deg);
+    }
+  }
+
+  .collapsed & > i {
+
+    &:nth-child(1) {
+      transform: translate3d(0,0,0) rotate(0deg);
+    }
+    &:nth-child(2) {
+      display: block;
+    }
+    &:nth-child(3) {
+      transform: translate3d(0,0px,0) rotate(0deg);
+    }
+  }
+}
+
+// .collapsed .hamburger > i {
+//   background-color: var(--bs-gray);
+// }
+
+// Toggler
+.navbar-toggler {
+  border-color: transparent !important;
+}

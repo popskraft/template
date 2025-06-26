@@ -1,0 +1,55 @@
+// ========================================
+//  Link Styles
+//  Custom link and underline effects
+// ========================================
+
+// Base link style with animated underline
+// Uses mixins from theme-mixins.scss
+.link {
+  position: relative;
+  cursor: pointer;
+
+  // Underline animation (hidden by default)
+  &::after {
+    @include trans();
+    @include underline-after();
+    transform: scale(0, 1);
+    transform-origin: bottom left;
+    opacity: 0;
+
+    // Adjust for inverse color scheme
+    .inverse & {
+      @include underline-after($link-color);
+    }
+  }
+
+  // Show underline on hover
+  &:hover::after {
+    transform: scale(1, 1);
+    opacity: 0.8;
+  }
+}
+
+// ========================================
+//  Underline Effect
+//  Permanently underlined text with hover effect
+// ========================================
+.underline {
+  position: relative;
+  cursor: pointer;
+
+  // Underline (visible by default)
+  &::after {
+    @include trans();
+    @include underline-after();
+    transform: scale(1, 1);
+    transform-origin: bottom right;
+    opacity: 1;
+  }
+
+  // Shrink underline on hover
+  &:hover::after {
+    transform: scale(0.2, 1);
+    opacity: 0.8;
+  }
+}

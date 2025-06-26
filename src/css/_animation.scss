@@ -1,0 +1,18 @@
+.trans-fast {
+  @include trans-fast();
+}
+.trans {
+  @include trans();
+}
+.trans-slow {
+  @include trans-slow();
+}
+.trans-delay-fast {
+  @include trans-delay-fast();
+}
+.trans-delay {
+  @include trans-delay();
+}
+.trans-delay-slow {
+  @include trans-delay-slow();
+}

@@ -1,0 +1,33 @@
+@include media-breakpoint-up(lg) {
+  // https://bootstrap-menu.com/detail-hover-animation.html
+  .dropdown-menu-end {
+    right:0;
+    left: auto; 
+  }
+  
+  .dropdown-menu {
+    .nav-item & {
+      @include trans();
+      display:block;
+      opacity: 0;
+      visibility: hidden;
+      margin-top:0;
+    }
+    .nav-item:hover & {
+      opacity:1;
+      visibility:visible;
+      top:100%;
+      transform: scale(1);
+    }
+    &.fade-down {
+      top:80%;
+      transform: scale(0);
+      transform-origin: 0% 0%;
+    }
+  }
+}
+.nav-link {
+  @include media-breakpoint-down(lg) {
+    font-size: 1.25rem;
+  }
+}

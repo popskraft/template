@@ -1,0 +1,22 @@
+// ========================================
+//  Branch1 Color Variables
+//  Contains branch-specific color variables
+// ========================================
+
+// BRANCH colors
+$primary: #005788;
+$primary-dark: #005788;
+$primary-light: #02B5D0;
+$primary-lighter: #eaf9fa;
+$secondary: #FF5C00;
+$secondary-lighter: #FFF7ED;
+
+$primary-text: $gray-600;
+$link-color: $secondary;
+$link-decoration: none;
+$link-shade-percentage: 10%;
+$link-hover-color: shift-color($link-color, $link-shade-percentage);
+$link-underline-color: $gray-300;
+$input-border-color: $primary;
+$headings-color: $primary-dark; // null !default;
+$lead-color: $primary-dark;

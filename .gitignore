@@ -1,0 +1,49 @@
+# ProcessWire Templates .gitignore
+
+# Exclude project-specific config files
+config.codekit3
+*.local.*
+.env
+.env.local
+
+# Exclude compiled/generated files
+dist/
+build/
+*.min.js
+*.min.css
+*.map
+
+# Exclude cache and temporary files
+cache/
+temp/
+tmp/
+*.tmp
+*.log
+
+# Exclude IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Exclude OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Exclude node modules if any
+node_modules/
+
+# Exclude project-specific includes that might contain sensitive data
+includes/config-local.php
+includes/database-local.php
+
+# Exclude custom project-specific functions (uncomment if needed)
+# functions/project-specific/
+
+# Exclude error pages that might be project-specific
+errors/
+
+# Include everything else by default
+# Add specific exclusions above as needed 

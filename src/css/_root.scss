@@ -1,0 +1,25 @@
+// ========================================
+//  CSS Custom Properties (CSS Variables)
+//  This file defines root-level CSS variables based on theme variables
+// ========================================
+
+:root {
+  // Generate CSS custom properties for theme colors
+  @each $color, $value in $theme-colors {
+    --#{$variable-prefix}#{$color}: #{$value};
+  }
+
+  // Generate CSS custom properties for transparent background variants
+  @each $color, $value in $theme-transparent-bg {
+    --#{$variable-prefix}fade-#{$color}: #{$value};
+  }
+
+  // Typography
+  // Using `inspect` to properly handle quoted font names
+  // See: https://github.com/sass/sass/issues/2383#issuecomment-336349172
+  --#{$variable-prefix}font-serif: #{inspect($font-family-serif)};
+  --#{$variable-prefix}font-sans-serif: #{inspect($font-family-sans-serif)};
+  
+  // Gradients
+  --#{$variable-prefix}gradient: #{$gradient};
+}

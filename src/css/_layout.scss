@@ -1,0 +1,49 @@
+// ========================================
+//  Base Layout
+//  Global layout and structural styles
+// ========================================
+
+// Base body styles
+body {
+  // Improve font rendering
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ========================================
+//  Utility Classes
+//  Reusable layout utilities
+// ========================================
+
+// Smooth scrolling behavior
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+// Prevent horizontal overflow
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+// Hide elements by moving them off-screen
+.removed {
+  position: fixed;
+  top: -200%;
+}
+
+// ========================================
+//  Z-index Utilities
+//  Consistent layering across the application
+// ========================================
+
+.zindex-min {
+  z-index: $zindex-min;
+}
+
+.zindex-md {
+  z-index: $zindex-md;
+}
+
+.zindex-max {
+  z-index: $zindex-max;
+}

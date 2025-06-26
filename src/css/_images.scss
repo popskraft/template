@@ -1,0 +1,71 @@
+// Zoom images on hoover. Assign to a closest container of the image. Example:
+// <div class="hover-zoom">
+//   <img src="">
+// </div>
+.hover-zoom {
+  overflow: hidden;
+  img {
+    @include trans-fast();
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.img-fluid-h {
+  width: auto;
+  max-height: 100%;
+}
+
+.img-full {
+  width: 100%;
+  height: auto;
+}
+
+.img-full-h {
+  width: auto;
+  height: 100%;
+}
+
+.gallery-figure:hover {
+  .gallery-image-caption {
+    opacity: 1 !important;
+  }
+}
+
+
+// Transparent overlays for images
+// <img class="bg-fade-dark img-bg-mask">
+@each $color, $value in $theme-transparent-bg {
+  .bg-#{$color}.img-mask:before {
+    background-color: #{$value};
+    color: color-contrast($value);
+  }
+}
+
+// Image as backgrounds
+.bg-img {
+  background-repeat: no-repeat;
+  // &:before {
+  //   @include trans-slow();
+  //   z-index: 0;
+  //   position: absolute;
+  //   content: "";
+  //   display: block;
+  //   top: 0px;
+  //   bottom: 0px;
+  //   left: 0px;
+  //   right: 0px;
+  //   width: 100%;
+  //   height: 100%;
+
+  //   transform: scale(1,0);
+  //   transform-origin: center;
+
+  //   .domready & {
+  //     transform: scale(1,1);
+  //   }
+  // }
+}

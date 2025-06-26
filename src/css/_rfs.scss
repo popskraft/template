@@ -1,0 +1,25 @@
+// stylelint-disable property-blacklist, scss/dollar-variable-default
+
+// SCSS RFS mixin
+//
+// Automated responsive values for font sizes, paddings, margins and much more
+//
+// Licensed under MIT (https://github.com/twbs/rfs/blob/master/LICENSE)
+
+// Configuration
+
+// // Base value
+$rfs-base-value: 1rem; // 1.25rem !default;
+// $rfs-unit: rem !default;
+
+// @if $rfs-unit != rem and $rfs-unit != px {
+//   @error "`#{$rfs-unit}` is not a valid unit for $rfs-unit. Use `px` or `rem`.";
+// }
+
+// // Breakpoint at where values start decreasing if screen width is smaller
+$rfs-breakpoint: 1900px; // 1200px !default;
+// $rfs-breakpoint-unit: px !default;
+
+
+// // Factor of decrease
+$rfs-factor: 6; // 10 !default;

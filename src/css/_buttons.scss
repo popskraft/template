@@ -1,0 +1,82 @@
+// ========================================
+//  Buttons
+//  Custom button styles and variants
+// ========================================
+
+// Base button styles (excluding link buttons)
+.btn:not(.btn-link) {
+  box-shadow: 0 0 0 rgba(62, 68, 84, 0.188) !important;
+  
+  &:hover {
+    box-shadow: 0 0.75rem 0 rgba(53, 58, 73, 0.144) !important;
+  }
+}
+
+// ========================================
+//  Button Hover Effects
+//  Adds shadow effect on hover for all theme colors
+// ========================================
+@each $color, $value in $theme-colors {
+  .btn-#{$color},
+  .btn-outline-#{$color} {
+    &:hover {
+      box-shadow: 0.5rem 0.5rem 0 rgba($value, 0.3);
+    }
+  }
+}
+
+// ========================================
+//  Link Buttons
+//  Special styling for button links
+// ========================================
+.btn-link {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  box-shadow: none;
+  color: $secondary !important;
+
+  // Underline animation
+  &::after {
+    @include trans();
+    @include underline-after($secondary, 3px);
+    transform: scale(1, 1);
+    transform-origin: bottom right;
+  }
+
+  // Hover state
+  &:hover {
+    background: transparent;
+    border-color: transparent;
+    color: $primary-dark;
+    
+    &::after {
+      transform: scale(0, 1);
+    }
+  }
+
+  // Focus state
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+// ========================================
+//  Button with Arrow
+//  Button variant with an arrow icon
+// ========================================
+.btn-link-arrow {
+  position: relative;
+  padding-right: 20px;
+  
+  &::before {
+    content: "\e315";
+    position: absolute;
+    right: -8px;
+    line-height: 0.8;
+    font-family: 'themeicon';
+    text-align: center;
+    color: var(--bs-primary);
+    font-size: 24px;
+  }
+}

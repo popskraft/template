@@ -1,0 +1,13 @@
+.MarkupPagerNav,
+.pagination {
+  justify-content: center;
+}
+.pagination-item {
+  padding: 1rem;
+
+  &.active a {
+    font-size: 2rem;
+    line-height: 1.5rem;
+    cursor: default;
+  }
+}

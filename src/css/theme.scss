@@ -1,0 +1,72 @@
+.contacts-map iframe {
+  width: 100%;
+  height: 500px;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.removed {
+  position: fixed;
+  top: -200%;
+}
+
+.zindex-min {
+  z-index: $zindex-min;
+}
+
+.zindex-md {
+  z-index: $zindex-md;
+}
+
+.zindex-max {
+  z-index: $zindex-max;
+}
+
+// --- Other
+.pointer {
+  cursor: pointer;
+}
+
+// Scroll buttons
+#mobileFooterNav {
+  opacity: 0;
+  visibility: hidden;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// // Header
+// #siteHeaderDefault {
+//   background: #ffffffe6;
+//   backdrop-filter: blur(10px);
+
+//   @include media-breakpoint-up(xl) {
+//     height: 112px;
+//     position: fixed;
+//     z-index: $zindex-md;
+//   }
+// }
+
+// .scrolled {
+//   .logo-menu-pages {
+//     height: 40px;  
+//   }
+
+//   #siteHeaderDefault {
+//     padding-top: .125rem !important;
+//     padding-bottom: .125rem !important;
+//     // box-shadow: var(--bs-box-shadow);
+
+//     @include media-breakpoint-up(xl) {
+//       height: 48px;
+//     }
+//   }
+// }
