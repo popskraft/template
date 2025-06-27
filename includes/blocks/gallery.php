@@ -3,10 +3,10 @@ $tilteClass = $bID->blocks_options->has(1) ? "display-1" : "display-2";
 
 $out = blockHeader($bID, "", "", 1);
 
-$out .= "<div class='row g-2 mb-2'>";
+$out .= "<div class='gallery row g-2 mb-2'>";
 
   $out .= "<div class='col-lg' data-aos='zoom-in'>";
-    $out .= image($bID->images_main->first(), 788, 788, null, null, "img-full rounded");
+    $out .= image($bID->images_main->first(), 900, 900, null, null, "gallery-image img-full rounded");
   $out .= "</div>";
   
   $out .= "<div class='col-lg order-first order-lg-last'>";

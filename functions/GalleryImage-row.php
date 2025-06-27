@@ -21,8 +21,8 @@ function galleryImage($pageID="", $class="", $sliceStart=1, $sliceEnd=20, $image
         $bodyImageH = 900;
       } else {
         $bodyImageClass = "col-md-6";
-        $bodyImageW = 788;
-        $bodyImageH = floor(788 * .75);
+        $bodyImageW = 900;
+        $bodyImageH = floor(900 * .75);
       }
     
       $out .= "<div class='gallery-item $bodyImageClass'>";
