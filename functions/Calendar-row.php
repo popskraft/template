@@ -109,7 +109,7 @@ function calendar($headlineClass = "")
 
     // Start building the HTML for this month-year group
     $out .= "<div class='divider border-top'></div>";
-    $out .= "<div class='calendar row $headlineClass'>";
+    $out .= "<div class='calendar-row row $headlineClass'>";
       $out .= "<div class='col-lg-5 pt-4'>";
         // Apply the season class dynamically
         $out .= "<div class='month-year display-4 text-lg-end $seasonClass'>$monthRusWithYear</div>";
