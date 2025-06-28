@@ -1,4 +1,4 @@
 <?php namespace ProcessWire;
-echo blockHeader($bID);
-echo timeline($bID);
-echo blockFooter($bID);
+echo blockHeader($blockID);
+echo timeline($blockID);
+echo blockFooter($blockID);

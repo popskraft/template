@@ -1,4 +1,4 @@
 <?php namespace ProcessWire;
-echo blockHeader($bID, "flickity-viewport-visible overflow-hidden", "container-xxl");
-echo testimonialsSlider($bID->pageref_testimonials);
-echo blockFooter($bID);
+echo blockHeader($blockID, "flickity-viewport-visible overflow-hidden", "container-xxl");
+echo testimonialsSlider($blockID->pageref_testimonials);
+echo blockFooter($blockID);

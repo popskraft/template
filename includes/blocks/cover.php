@@ -1,4 +1,4 @@
 <?php namespace ProcessWire;
-echo blockHeader($bID, "", "cover", 1);
-echo sectionCover($bID);
-echo blockFooter($bID);
+echo blockHeader($blockID, "", "cover", 1);
+echo sectionCover($blockID);
+echo blockFooter($blockID);

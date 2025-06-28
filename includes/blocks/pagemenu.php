@@ -1,4 +1,4 @@
 <?php namespace ProcessWire;
-echo blockHeader($bID, "", "cover", 1);
-echo pageMenu($bID->pageref_pages);
-echo blockFooter($bID);
+echo blockHeader($blockID, "", "cover", 1);
+echo pageMenu($blockID->pageref_pages);
+echo blockFooter($blockID);
