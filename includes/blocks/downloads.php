@@ -1,6 +1,6 @@
 <?php namespace ProcessWire;
-echo blockHeader($bID);
+echo blockHeader($blockId);
 echo "<div class='downloads mx-auto max-w-lg-60'>";
-  echo fileDownloads($bID->file_downloads);
+  echo fileDownloads($blockId->file_downloads);
 echo "</div>";
-echo blockFooter($bID);
+echo blockFooter($blockId);
