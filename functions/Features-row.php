@@ -44,12 +44,12 @@ function rowFeatures (
             // Add Number
             $out .= "<div class='d-flex'>";
               // $out .= ($options->has(5)) ? "<div class='item-number display-3 mt-n2 mt-lg-n3 mb-2 pe-3 text-danger'>". $i ."</div>" : "" ;
-              $out .= $link ? "<a class='d-block' href='$link'>" : "" ;
+              $out .= $link ? "<a class='features-item-link d-block' href='$link'>" : "" ;
                 $out .= "<div class='content'>";
-                $out .= count($images) ? image($images->first(), 600, 400, null, null, "img-fluid rounded mb-4 mb-lg-5 ") : "" ;
-                $out .= $title ? "<h3 class='item-title display-4 mb-2 mb-lg-3 text-$color'>$title</h3>" : "" ;
-                $out .= $summary ? "<div class='item-summary text-gray-dark'>$summary</div>" : "";
-                $out .= $link && $buttonName ? "<span class='btn btn-link mt-2'>$buttonName</span>" : "" ;
+                $out .= count($images) ? image($images->first(), 600, 400, null, null, "img-fluid rounded mb-4") : "" ;
+                $out .= $title ? "<h3 class='features-item-title display-4 mb-2 mb-lg-3 text-$color'>$title</h3>" : "" ;
+                $out .= $summary ? "<div class='features-item-summary text-gray-dark'>$summary</div>" : "";
+                $out .= $link && $buttonName ? "<span class='features-item-button btn btn-link mt-2'>$buttonName</span>" : "" ;
                 $out .= "</div>";
               $out .= $link ? "</a>" : "" ;
             $out .= "</div>";

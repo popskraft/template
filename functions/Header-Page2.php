@@ -30,7 +30,7 @@ function pageHeaderSecondary($pageID="", $headlineClass="", $sectionCaptionLinkC
           
             $out .= "<div class='col-lg text-end' data-aos='fade-up'>";
             if (isset($images) && count($images)) {
-              $out .= image($images->first(), null, 550, null, null, "img-fluid rounded");
+              $out .= image($images->first(), null, 800, null, null, "img-fluid rounded");
             }
             $out .= "</div>";
             
