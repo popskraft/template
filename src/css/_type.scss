@@ -393,7 +393,7 @@ ul.markerlist-icon {
   margin-bottom: $spacer;
   color: var(--#{$prefix}table-color);
   vertical-align: $table-cell-vertical-align;
-  border-color: var(--#{$prefix}table-border-color) !important;
+  border: none;
 
   // Target th & td
   // We need the child combinator to prevent styles leaking to nested tables which doesn't have a `.table` class.

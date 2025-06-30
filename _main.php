@@ -134,12 +134,12 @@ namespace ProcessWire; ?>
               <div class="address mb-2 text-white">
                 <div class="display-5 mt-3 mb-2"><?= caption("address") ?></div>
                 <?= "$postalCode, $addressCountry, $addressRegion" ?><br>
-                <a target="_blank" rel="nofollow" href="<?= $siteData->address_map ?>" class="link">
+                <a target="_blank" rel="nofollow" href="<?= $sanitizer->url($siteData->address_map) ?>" class="link">
                   <?= "$addressLocality, $streetAddress" ?>
                 </a>
               </div>
               <div class="maplink mb-2">
-                <a target="_blank" rel="nofollow" href="<?= $siteData->address_map ?>" class="fs-5 underline"><?= caption("show_on_map") ?></a>
+                <a target="_blank" rel="nofollow" href="<?= $sanitizer->url($siteData->address_map) ?>" class="fs-5 underline"><?= caption("show_on_map") ?></a>
               </div>
             <?php } // END if 
             ?>

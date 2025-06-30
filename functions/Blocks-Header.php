@@ -9,7 +9,7 @@ function blockHeader($pageID, $classSection="", $class="", $headerOFF="")
   $titleColClass = "col-lg";
   $summaryColClass = "col-lg";
   $class = $class ?: "container-xxl" ;
-  $class .= $pageID->blocks_options->has(2) ? "" : " mb-6 mb-xxl-7" ; // Indent bottom Big
+  $class .= $pageID->blocks_options->has(2) ? "" : " mb-6" ; // Indent bottom Big
 
   if ($pageID->blocks_options->has(5)) { // Center align title and summary
     $titleColClass = "col-8 mx-auto text-center";
@@ -20,15 +20,15 @@ function blockHeader($pageID, $classSection="", $class="", $headerOFF="")
   "blocks_type,title,text_longtitle,text_1,text_summary,images_main,images_gallery,file_downloads,timeline,pageref_testimonials,pageref_pages,video,images_logos,blocks_items,text_body_light,faq,blocks_links,blocks_options,blocks_selectblock" : "" ;
 
   $out = "<div id='block-{$pageID->blocks_type->value}-$pageID' class='blockHeader position-relative $classSection' edit='$pageID.$editBlock'>";
-    $out .= "<div class='$class'>";
+    $out .= "<div class='blockHeader-container $class'>";
 
     if (!$headerOFF && $title) {
-      $out .= "<div class='blockHeader-header row align-items-end mb-3'>";
-        $out .= "<div class='$titleColClass'>";
+      $out .= "<div class='blockHeader-header-row row align-items-end mb-3'>";
+        $out .= "<div class='blockHeader-header-title $titleColClass'>";
           $out .= $title ? "<h2 class='$tilteClass mb-4 mb-lg-5'>$title</h2>" : "" ;
         $out .= "</div>";
         if ($summary) {
-        $out .= "<div class='$summaryColClass'>";
+        $out .= "<div class='blockHeader-header-summary $summaryColClass'>";
           $out .= $summary ? "<div class='lead mb-4 mb-5'>$summary</div>" : "";
         $out .= "</div>";
         }
