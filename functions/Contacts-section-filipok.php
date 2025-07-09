@@ -14,13 +14,22 @@ function sectionContactsFilipok($siteData="")
   $website = $siteData->website;
   
   
-  $out = "<div class='sectionContacts mainContainer row' edit='$siteSettingsPage.site_data,site_texts'>";
-    $out .= "<div class='col-lg mb-5'>";
-      $out .= phone($phoneMain, 'd-block text-primary mb-3 fs-1 fs-lg-2', 1, 'rounded-circle me-3 p-2 border border-primary text-primary', 22);
+  $out = "<div class='sectionContacts-Filipok mainContainer row' edit='$siteSettingsPage.site_data,site_texts'>";
+    $out .= "<div class='col-lg mb-4 mb-xl-5'>";
+      // Преобразуем строку с телефонами в массив
+      $phonesArray = fieldExplode($phoneMain, "br");
+      
+      // Выводим каждый телефон через цикл foreach
+      foreach ($phonesArray as $phoneNumber) {
+        $phoneNumber = trim($phoneNumber); // Убираем лишние пробелы
+        if ($phoneNumber) { // Проверяем что номер не пустой
+          $out .= phone($phoneNumber, 'd-block text-primary mb-3 fs-1 fs-lg-2', 1, 'rounded-circle me-3 p-2 border border-primary text-primary', 22);
+        }
+      }
       $out .= "<div class='display-5 mt-4 mb-2 text-dark'>" . caption('email') . "</div>";
       $out .= "<div class='fs-3'><a href='mailto:$email'>$email</a></div>";
     $out .= "</div>";
-    $out .= "<div class='col-lg mb-5'>";
+    $out .= "<div class='col-lg mb-4 mb-xl-5'>";
       $out .= "<div class='display-5 mt-4 mb-3 text-dark'>" . caption('contacts_title_address') . "</div>";
       $out .= "<div class='fs-3'>$postalCode,&nbsp;$addressRegion, $addressLocality, $streetAddress</div>";
       $out .= "<div class='maplink mt-3'><a class='link' href='$addressMap'>" . caption('show_on_map') . "</a></div>";
@@ -30,7 +39,7 @@ function sectionContactsFilipok($siteData="")
   $out .= "</div>";
 
 
-  $out .= "<div class='sectionContacts branches row' edit='$siteSettingsPage.site_data,site_texts'>";
+  $out .= "<div class='sectionContacts-Filipok branches row' edit='$siteSettingsPage.site_data,site_texts'>";
 
   // Define branches array with their data
   $branches = [];

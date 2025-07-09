@@ -7,7 +7,9 @@
 // replace or delete any element defined here that has an "id" attribute. 
 // https://processwire.com/docs/front-end/output/markup-regions/
 
-namespace ProcessWire; ?>
+namespace ProcessWire;
+
+?>
 <!DOCTYPE html>
 <html class="smooth-scroll" lang="<?= $locale ?>">
 
@@ -56,7 +58,14 @@ namespace ProcessWire; ?>
 
       <div class="mobile-top-nav d-flex d-lg-none justify-content-between w-100 mb-lg-4">
         <div class="mobile-left d-flex align-items-center">
-          <?= icon('phone', 20, 'd-inline-flex rounded-circle border border-primary p-2 me-3', 'tel:' . preg_replace('/[^0-9,+]/', '', $siteData->phone_main)) ?>
+          <?php
+            // Преобразуем строку с телефонами в массив и используем только первый номер
+            $phonesArray = fieldExplode($siteData->phone_main, "br");
+            $firstPhone = trim($phonesArray[0] ?? '');
+            if ($firstPhone) {
+              echo icon('phone', 20, 'd-inline-flex rounded-circle border border-primary p-2 me-3', 'tel:' . preg_replace('/[^0-9,+]/', '', $firstPhone));
+            }
+          ?>
         </div>
         <div class="mobile-right d-flex align-items-center">
           <?php if ($siteData->ctaLink) echo button($siteData->ctaLink, $siteData->ctaCaption, 'text-uppercase btn btn-outline-secondary my-2 me-3', 'target=_blank') ?>
@@ -81,7 +90,14 @@ namespace ProcessWire; ?>
           <?= langSwitcher() ?>
           <div class="d-none d-lg-flex align-items-center">
             <?php if ($siteWhatsApp) echo icon('whatsapp', 20, 'd-none d-lg-inline-flex rounded-circle border text-success border-success p-2 mx-3', 'https://wa.me/' . $siteWhatsApp, "", "", caption('contactWhatsapp')); ?>
-            <?= phone($siteData->phone_main, "text-secondary", 1, "border border-secondary rounded-circle p-2 me-2", 20) ?>
+            <?php
+              // Преобразуем строку с телефонами в массив и выводим только первый номер
+              $phonesArray = fieldExplode($siteData->phone_main, "br");
+              $firstPhone = trim($phonesArray[0] ?? '');
+              if ($firstPhone) {
+                echo phone($firstPhone, "text-secondary", 1, "border border-secondary rounded-circle p-2 me-2", 20);
+              }
+            ?>
             <?php if ($siteData->ctaLink) echo button($siteData->ctaLink, $siteData->ctaCaption, 'text-uppercase btn btn-outline-secondary my-2 ms-2', 'target=_blank') ?>
           </div>
           <div class="d-lg-none">
@@ -111,64 +127,118 @@ namespace ProcessWire; ?>
     </div>
     <div id="blocks">
       <?php
-      echo blocks();
-      echo blocks(page("blocks_selectblocks"));
+        echo blocks();
+        echo blocks(page("blocks_selectblocks"));
       ?>
     </div>
   </main>
-
 
   <footer id="footer" class="footer position-relative overflow-hidden" edit="<?= pages('settings')->id ?>.menu_footer,menu_footer2,menu_footer3,site_data,site_texts">
     <div class="container-xxl">
       <div class="rounded-top-4 bg-primary inverse px-3 px-lg-5 px-xxl-6 pt-5 pt-xl-6 pb-5">
         <div class="row">
-          <div class="col-12 col-lg pb-4">
+
+          <div class="footer-first-col col-12 col-lg pb-4">
             <div class="logoggroup ms-n2 mt-xl-n4 mb-3">
               <?= logo("logo_white", 0, 0, "logogroup-footer ms-lg-n3") ?>
             </div>
-            <?php if (page("template") != "page-contacts") { ?>
-              <?= phone($sitePhoneMain, 'd-block text-primary my-3 fs-1 fs-lg-3', 1, 'rounded-circle me-3 p-2 border border-primary text-primary', 22) ?>
-              <div class="email-company mb-2">
-                <a href="mailto:<?= $email ?>" rel="nofollow" class="link"><?= $email ?></a>
-              </div>
-              <div class="address mb-2 text-white">
-                <div class="display-5 mt-3 mb-2"><?= caption("address") ?></div>
-                <?= "$postalCode, $addressCountry, $addressRegion" ?><br>
-                <a target="_blank" rel="nofollow" href="<?= $sanitizer->url($siteData->address_map) ?>" class="link">
-                  <?= "$addressLocality, $streetAddress" ?>
-                </a>
-              </div>
-              <div class="maplink mb-2">
-                <a target="_blank" rel="nofollow" href="<?= $sanitizer->url($siteData->address_map) ?>" class="fs-5 underline"><?= caption("show_on_map") ?></a>
-              </div>
-            <?php } // END if 
+            
+            <?php
+              $sitePhones = $siteData->phone_main;
+              if ($sitePhones) {
+                // Преобразуем строку с телефонами в массив
+                $phonesArray = fieldExplode($sitePhones, "br");
+                
+                echo "<div class='site-phones'>";
+                  // Выводим каждый телефон через цикл foreach
+                  foreach ($phonesArray as $phoneNumber) {
+                    $phoneNumber = trim($phoneNumber); // Убираем лишние пробелы
+                    if ($phoneNumber) { // Проверяем что номер не пустой
+                      echo phone($phoneNumber, 'd-block text-primary mb-2 me-lg-3 fs-1 fs-sm-3', 1, 'rounded-circle me-2 p-2 border border-primary text-primary', 12);
+                    }
+                  }
+                echo "</div>";
+              }
             ?>
+
+            <?php
+              // if filipok.koriphey.ru, show branches
+              if (in_array('filipok.koriphey.ru', $config->httpHosts)) {
+                // If filipok.koriphey.ru
+                $footerSecondColumnClass = "col-lg";
+              } else {
+                // default
+                $footerSecondColumnClass = "col-lg-8";
+              }
+
+              if (page("template") != "page-contacts") {
+
+                echo  "<div class='address-row row'>";
+
+                // if filipok.koriphey.ru, show branches
+                if (in_array('filipok.koriphey.ru', $config->httpHosts)) {  
+                  echo sectionAddress(
+                    null,
+                    "col-12 col-lg", 
+                    $siteData->branch_1_name,
+                    $siteData->branch_1_email,
+                    $siteData->branch_1_phone,
+                    $siteData->branch_1_streetAddress,
+                    $siteData->branch_1_address_map,
+                  );
+                    
+                  echo sectionAddress(
+                    null, 
+                    "col-12 col-lg",
+                    $siteData->branch_2_name,
+                    $siteData->branch_2_email,
+                    $siteData->branch_2_phone,
+                    $siteData->branch_2_streetAddress,
+                    $siteData->branch_2_address_map,
+                  );
+                }
+
+                // show office address
+                $mainOfficeTitle = $siteData->main_office_name ?: caption("address");
+                echo sectionAddress(
+                  null,
+                  null,
+                  $mainOfficeTitle
+                );
+
+                echo  "</div>";
+
+              } // END if ?>
           </div>
 
-          <div class="divider col-12 border-top d-lg-none w-100 mb-4"></div>
-
-          <div class="col-lg-8 fs-5">
+          <div class="footer-second-col fs-5 <?= $footerSecondColumnClass ?>">
             <div class="row">
 
+              <?php if ($menuFooter && count($menuFooter)) { ?>
               <div class="col pb-4">
                 <nav>
                   <div class="display-5 mb-3"><?= caption("footer_col1_title") ?></div>
                   <?= menuFooter($menuFooterStructure, $menuFooter) ?>
                 </nav>
               </div>
+              <?php } ?>
 
+              <?php if ($menuFooter2 && count($menuFooter2)) { ?>
               <div class="col">
                 <nav>
                   <div class="display-5 mb-3"><?= caption("footer_col2_title") ?></div>
                   <?= menuFooter($menuFooterStructure2, $menuFooter2) ?>
                 </nav>
               </div>
+              <?php } ?>
 
+              <?php if ($menuFooter3 && count($menuFooter3)) { ?>
               <div class="col">
                 <div class="display-5 mb-3"><?= caption("footer_col3_title") ?></div>
                 <?= menuFooter($menuFooterStructure3, $menuFooter3) ?>
                 <?= socials($siteSettings->socials) ?>
               </div>
+              <?php } ?>
 
               <div class="col-12 pb-5">
 
@@ -188,7 +258,12 @@ namespace ProcessWire; ?>
 
   <div id="mobileFooterNav" class="d-flex position-fixed zindex-min bottom-0 end-0 p-3 pb-4 trans">
     <?php
-    echo icon("telephone", 20, "d-flex bg-light border border-primary rounded-circle p-3 text-primary m-1", 'tel:' . preg_replace('/[^0-9,+]/', '', $siteData->phone_main));
+    // Преобразуем строку с телефонами в массив и используем только первый номер
+    $phonesArray = fieldExplode($siteData->phone_main, "br");
+    $firstPhone = trim($phonesArray[0] ?? '');
+    if ($firstPhone) {
+      echo icon("telephone", 20, "d-flex bg-light border border-primary rounded-circle p-3 text-primary m-1", 'tel:' . preg_replace('/[^0-9,+]/', '', $firstPhone));
+    }
     echo icon("chat-dots", 20, "d-flex bg-light border border-primary rounded-circle p-3 text-primary m-1", 0, "data-bs-toggle='modal' data-bs-target='#contact'");
     echo icon("chevron-up", 20, "d-flex bg-light border border-primary rounded-circle p-3 text-primary m-1", 0, "id='scroll-to-top'");
     ?>

@@ -23,7 +23,7 @@ function pageHeaderSecondary($pageID="", $headlineClass="", $sectionCaptionLinkC
 
   $out = "";
 
-    $out .= "<div id='pageHeader' class='page-header-secondary pb-2 mb-6 mb-md-7' edit='$edit'>";
+    $out .= "<div id='pageHeaderSecondary' class='page-header-secondary pb-2 mb-6 mb-md-7' edit='$edit'>";
       $out .= "<div class='container-xxl'>";
         $out .= "<div class='$rowWrapClass'>";
           $out .= "<div class='row align-items-between'>";

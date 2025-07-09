@@ -14,6 +14,11 @@ function anonsNews($newsCategory, $anonsPage)
   $anonslinkLabel =  $anonsPage->text_1 ?: caption("more");
   $anonsEdit = "edit='$anonsPage.check_on,images_main,title,text_longtitle,date_end,text_summary,link,text_1'";
   $anonsDate = ($anonsON && $anonsPage->date_end) ? $anonsPage->date_end  : $news->first()->date_start;
+  
+  $anonsClass = "mt-n5 mt-lg-n7 pb-5";
+  if (in_array('filipok.koriphey.ru', wire('config')->httpHosts)) {
+    $anonsClass = "pb-5";
+  }
 
   // First news data fetched
   $firstNews = $news->first();
@@ -24,6 +29,8 @@ function anonsNews($newsCategory, $anonsPage)
   $sectionTitle = $newsCategory->title;
   if ($anonsON && $anonssectionTitle) {
      $sectionTitle = $anonssectionTitle;
+  } else if ($anonsON && $anonsPage->title) {
+    $sectionTitle = $anonsPage->title;
   } else if
   ($anonsON && !$anonssectionTitle) {
     $sectionTitle = "";
@@ -33,7 +40,7 @@ function anonsNews($newsCategory, $anonsPage)
   $anonsURL = ($anonsON && $anonslink) ? $anonslink : $firstNews->url;
 
   $out = "";
-  $out .= "<div class='anonsNews container-xxl mt-n5 mt-lg-n7 pb-5' data-aos='fade-up' $anonsEdit>";
+  $out .= "<div class='anonsNews container-xxl $anonsClass' data-aos='fade-up' $anonsEdit>";
     $out .= "<div class='bg-lighter rounded-4'>";
       $out .= "<div class='row'>";
       

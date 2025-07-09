@@ -20,6 +20,7 @@ function blockHeader($pageID, $classSection="", $class="", $headerOFF="")
   "blocks_type,title,text_longtitle,text_1,text_summary,images_main,images_gallery,file_downloads,timeline,pageref_testimonials,pageref_pages,video,images_logos,blocks_items,text_body_light,faq,blocks_links,blocks_options,blocks_selectblock" : "" ;
 
   $out = "<div id='block-{$pageID->blocks_type->value}-$pageID' class='blockHeader position-relative $classSection' edit='$pageID.$editBlock'>";
+  
     $out .= "<div class='blockHeader-container $class'>";
 
     if (!$headerOFF && $title) {
