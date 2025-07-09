@@ -108,8 +108,7 @@ namespace ProcessWire;
               <div class="mb-2">
                 <?= iconCaption("https://wa.me/" . $siteWhatsApp, caption("contactWhatsapp"), "whatsapp", "", "rounded-circle me-2 p-2 border", 22) ?>
               </div>
-            <?php } // END if siteWhatsApp 
-            ?>
+            <?php } // END if siteWhatsApp ?>
           </div>
         </div>
       </div>
@@ -139,11 +138,13 @@ namespace ProcessWire;
         <div class="row">
 
           <div class="footer-first-col col-12 col-lg pb-4">
+            
             <div class="logoggroup ms-n2 mt-xl-n4 mb-3">
               <?= logo("logo_white", 0, 0, "logogroup-footer ms-lg-n3") ?>
             </div>
             
             <?php
+              
               $sitePhones = $siteData->phone_main;
               if ($sitePhones) {
                 // Преобразуем строку с телефонами в массив
@@ -154,14 +155,12 @@ namespace ProcessWire;
                   foreach ($phonesArray as $phoneNumber) {
                     $phoneNumber = trim($phoneNumber); // Убираем лишние пробелы
                     if ($phoneNumber) { // Проверяем что номер не пустой
-                      echo phone($phoneNumber, 'd-block text-primary mb-2 me-lg-3 fs-1 fs-sm-3', 1, 'rounded-circle me-2 p-2 border border-primary text-primary', 12);
+                      echo phone($phoneNumber, 'd-block text-primary mb-2 me-lg-3 fs-2 fs-sm-3', 1, 'rounded-circle me-2 p-2 border border-primary text-primary', 12);
                     }
                   }
                 echo "</div>";
               }
-            ?>
-
-            <?php
+            
               // if filipok.koriphey.ru, show branches
               if (in_array('filipok.koriphey.ru', $config->httpHosts)) {
                 // If filipok.koriphey.ru
@@ -203,10 +202,16 @@ namespace ProcessWire;
                 echo sectionAddress(
                   null,
                   null,
-                  $mainOfficeTitle
+                  $mainOfficeTitle,
+                  $siteData->email,
+                  null,
+                  $siteData->streetAddress,
+                  $siteData->address_map,
+                  $siteData->addressLocality,
+                  $siteData->postalCode
                 );
 
-                echo  "</div>";
+                echo  "</div>"; // END address-row
 
               } // END if ?>
           </div>
@@ -291,8 +296,7 @@ namespace ProcessWire;
         </div>
       </div>
     </div>
-  <?php } // END if 
-  ?>
+  <?php } // END if ?>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>

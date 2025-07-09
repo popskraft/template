@@ -14,7 +14,7 @@ function rowCTALight(
   $containerClass = $containerClass ?: "mb-5 mb-lg-7";
   $contentClass = $contentClass ?: "max-w-lg-80 max-w-xxl-60 shadow bg-white border rounded overflow-hidden";
   $headerClass = $headerClass ?: "display-4 mb-3 text-primary";
-  $rowClass = $rowClass ?: "align-items-end";
+  $rowClass = $rowClass ?: "align-items-center";
   
   $imageClass = $imageClass ?: "img-fluid";
   $images = $blockID ? $blockID->images_main : ($settingsPage && $settingsPage->images_main && count($settingsPage->images_main) ? $settingsPage->images_main : $settingsGlobal->images_main);

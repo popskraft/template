@@ -34,7 +34,11 @@ namespace ProcessWire; ?>
      *  ========================================
      */
     if (page()->template == "page-contacts") {
-      echo sectionContactsFilipok();
+      if (in_array('filipok.koriphey.ru', $config->httpHosts)) {
+        echo sectionContactsFilipok();
+      } else {
+        echo sectionContacts();
+      }
     }
     /**
      *  Jobs
